@@ -1,0 +1,34 @@
+<?php
+namespace AppBundle\Entity;
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ *
+ * @ORM\Table(name="todo")
+ * @ORM\Entity
+ */
+class TodoEntity
+{
+    /**
+     * @var integer $id
+     *
+     * @ORM\Column(name="id", type="bigint")
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
+     */
+    private $id;
+
+    /**
+     * @var string $todo
+     *
+     * @ORM\Column(name="todo", type="string", length=255, nullable=false)
+     */
+    private $todo;
+
+    /**
+     * @var boolean $status
+     *
+     * @ORM\Column(name="status", type="boolean", nullable=false)
+     */
+    private $status;
+}
