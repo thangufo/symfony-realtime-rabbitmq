@@ -1,3 +1,24 @@
-<script type="text/ng-template" id="submitOrder.html">
-    Hello
+<script type="text/ng-template" id="submitOrder.html" >
+    <form name="orderForm" ng-submit="submitForm(orderForm)" novalidate>
+        <div class="row">
+            <div class="col-md-12">
+                <div class="form-group" ng-class="{'alert alert-danger': registrationForm.firstName.$invalid
+                            &&  attempted}">
+                    <label class="control-label required">Request</label>
+                    <input name="firstName"
+                           type="text" ng-model="order.request"
+                           class="form-control form-control">
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-12">
+                <button type="submit" class="btn btn-lg btn-primary btn btn-primary">
+                    Submit
+                </button>
+
+            </div>
+        </div>
+    </form>
 </script>

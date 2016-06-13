@@ -1,3 +1,25 @@
 <script type="text/ng-template" id="approveOrder.html">
-
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Request</th>
+                <th>Request Time</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr ng-repeat="order in orders">
+                <td>[[ order.request ]]</td>
+                <td>[[ order.requestTime ]]</td>
+                <td>
+                    <span ng-if="order.status == 1">ACCEPTED</span>
+                    <span ng-if="order.status == -1">REJECTED</span>
+                    <span ng-if="order.status == 0">
+                        <button type="submit" class="btn btn-primary">Approve</button>
+                        <button type="submit" class="btn btn-primary">Reject</button>
+                    </span>
+                </td>
+            </tr>
+        </tbody>
+    </table>
 </script>

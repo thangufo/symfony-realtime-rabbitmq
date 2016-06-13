@@ -15,7 +15,9 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
 
         {% javascripts
-            'default/js/*.js'
+            '@AppBundle/Resources/views/default/js/app.js'
+            '@AppBundle/Resources/views/default/js/ApproveOrderController.js'
+            '@AppBundle/Resources/views/default/js/SubmitOrderController.js'
                 output='js/realtimeapp-angular.js'%}
             <script type="text/javascript" src="{{ asset_url }}"></script>
         {% endjavascripts %}
@@ -29,14 +31,14 @@
     <div class="container">
         <div class="panel panel-primary">
             <div class="panel-body">
-                <div ui-router></div>
+                <div ui-view></div>
             </div> <!-- End of panel body -->
         </div>
     </div>
 
     <!-- include the partials -->
-    {{include ('default/partials/home.html.twig')}}
-    {{include ('default/partials/submitOrder.html.twig')}}
-    {{include ('default/partials/approveOrder.html.twig')}}
+    {{include ('AppBundle:default:partials/home.html.twig')}}
+    {{include ('AppBundle:default:partials/submitOrder.html.twig')}}
+    {{include ('AppBundle:default:partials/approveOrder.html.twig')}}
 </body>
 </html>

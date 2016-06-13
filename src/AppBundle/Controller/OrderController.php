@@ -36,7 +36,7 @@ class OrderController extends Controller
      */
     public function submitAction(Request $request)
     {
-        $content = json_decode($request->getContent());
+        $content = json_decode($request->getContent(),true);
         $order = new Order();
         $order->setRequest($content['request']);
         $order->setRequestTime(new \DateTime());
@@ -44,6 +44,10 @@ class OrderController extends Controller
         $em = $this->getDoctrine()->getManager();
         $em->persist($order);
         $em->flush();
+
+        return new JsonResponse([
+            'id' => $order->getId()
+        ]);
 
         $this->sendToRabbit("neworder",$content);
     }
