@@ -3,4 +3,12 @@ angular.module('realtimeApp').controller('SubmitOrderController',
         $http.get("/order").then(function(response){
             $scope.orders = response.data;
         })
+
+        $scope.approve = function(orderId) {
+
+        }
+
+        $scope.reject = function(orderId) {
+
+        }
     });

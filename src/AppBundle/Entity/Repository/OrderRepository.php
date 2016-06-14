@@ -12,7 +12,7 @@ class OrderRepository extends \Doctrine\ORM\EntityRepository
 {
     public function findAll(){
         return $this->getEntityManager()
-            ->createQuery('SELECT r FROM AppBundle:Order r ')
+            ->createQuery('SELECT r FROM AppBundle:Order r ORDER BY r.status = 0')
             ->getArrayResult();
     }
 }
