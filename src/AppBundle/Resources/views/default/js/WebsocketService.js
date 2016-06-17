@@ -14,6 +14,19 @@ angular.module('realtimeApp').factory('WebsocketService',
 		mq_queue    = "/topic/mymessages";
 
 		//setup the RabbitMQ connection
+		var ws = new SockJS(mq_url);
+		var client = Stomp.over(ws);
+
+		// RabbitMQ SockJS does not support heartbeats so disable them
+		client.heartbeat.outgoing = 0;
+		client.heartbeat.incoming = 0;
+
+		client.debug = onDebug;
+		var onConnect = function() {
+			console.log("Connected !!!");
+		}
+		// Make sure the user has limited access rights
+		client.connect(mq_username, mq_password, onConnect, onError, mq_vhost);
 
 		this.sendMessage = function() {
 
