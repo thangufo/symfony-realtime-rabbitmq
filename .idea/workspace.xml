@@ -3,10 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="fc500d9b-30e9-44bc-8b00-f4734af30800" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/AppBundle/Controller/OrderController.php" afterPath="$PROJECT_DIR$/src/AppBundle/Controller/OrderController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/AppBundle/Entity/Repository/OrderRepository.php" afterPath="$PROJECT_DIR$/src/AppBundle/Entity/Repository/OrderRepository.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/AppBundle/Resources/views/default/js/WebsocketService.js" afterPath="$PROJECT_DIR$/src/AppBundle/Resources/views/default/js/WebsocketService.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/AppBundle/Resources/views/default/partials/approveOrder.html.twig" afterPath="$PROJECT_DIR$/src/AppBundle/Resources/views/default/partials/approveOrder.html.twig" />
     </list>
     <ignored path="symfony-realtime-rabbitmq.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -48,11 +45,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="WebsocketService.js" pinned="false" current-in-tab="false">
+      <file leaf-file-name="WebsocketService.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/AppBundle/Resources/views/default/js/WebsocketService.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="470">
-              <caret line="46" column="40" selection-start-line="46" selection-start-column="40" selection-end-line="46" selection-end-column="40" />
+            <state relative-caret-position="-160">
+              <caret line="6" column="80" selection-start-line="6" selection-start-column="80" selection-end-line="6" selection-end-column="80" />
               <folding />
             </state>
           </provider>
@@ -75,11 +72,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="submitOrder.html.twig" pinned="false" current-in-tab="true">
+      <file leaf-file-name="submitOrder.html.twig" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/AppBundle/Resources/views/default/partials/submitOrder.html.twig">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="360">
-              <caret line="20" column="85" selection-start-line="20" selection-start-column="85" selection-end-line="20" selection-end-column="85" />
+            <state relative-caret-position="288">
+              <caret line="16" column="14" selection-start-line="16" selection-start-column="14" selection-end-line="16" selection-end-column="14" />
               <folding />
             </state>
           </provider>
@@ -190,10 +187,10 @@
         <option value="$PROJECT_DIR$/app/config/parameters.yml" />
         <option value="$PROJECT_DIR$/src/AppBundle/Resources/views/default/js/app.js" />
         <option value="$PROJECT_DIR$/src/AppBundle/Resources/views/default/js/ApproveOrderController.js" />
-        <option value="$PROJECT_DIR$/src/AppBundle/Resources/views/default/js/WebsocketService.js" />
         <option value="$PROJECT_DIR$/src/AppBundle/Entity/Repository/OrderRepository.php" />
         <option value="$PROJECT_DIR$/src/AppBundle/Resources/views/default/partials/approveOrder.html.twig" />
         <option value="$PROJECT_DIR$/src/AppBundle/Controller/OrderController.php" />
+        <option value="$PROJECT_DIR$/src/AppBundle/Resources/views/default/js/WebsocketService.js" />
       </list>
     </option>
   </component>
@@ -569,7 +566,7 @@
       <workItem from="1465478393744" duration="7681000" />
       <workItem from="1465742075765" duration="156000" />
       <workItem from="1465815642209" duration="9004000" />
-      <workItem from="1466206184634" duration="11979000" />
+      <workItem from="1466206184634" duration="12063000" />
     </task>
     <task id="LOCAL-00001" summary="update workspace">
       <created>1465742105361</created>
@@ -620,11 +617,18 @@
       <option name="project" value="LOCAL" />
       <updated>1466227716506</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="Fix ApproveOrderController">
+      <created>1466228730284</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1466228730284</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="43160000" />
+    <option name="totallyTimeSpent" value="43244000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="65" y="24" width="1855" height="1056" extended-state="6" />
@@ -986,14 +990,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/AppBundle/Resources/views/default/js/WebsocketService.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="470">
-          <caret line="46" column="40" selection-start-line="46" selection-start-column="40" selection-end-line="46" selection-end-column="40" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/AppBundle/Entity/Repository/OrderRepository.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="252">
@@ -1030,8 +1026,16 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/AppBundle/Resources/views/default/partials/submitOrder.html.twig">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="360">
-          <caret line="20" column="85" selection-start-line="20" selection-start-column="85" selection-end-line="20" selection-end-column="85" />
+        <state relative-caret-position="288">
+          <caret line="16" column="14" selection-start-line="16" selection-start-column="14" selection-end-line="16" selection-end-column="14" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/AppBundle/Resources/views/default/js/WebsocketService.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-160">
+          <caret line="6" column="80" selection-start-line="6" selection-start-column="80" selection-end-line="6" selection-end-column="80" />
           <folding />
         </state>
       </provider>
