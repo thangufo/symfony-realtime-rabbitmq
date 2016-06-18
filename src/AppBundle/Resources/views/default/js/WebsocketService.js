@@ -20,9 +20,15 @@ angular.module('realtimeApp').service('WebsocketService',
 		// RabbitMQ SockJS does not support heartbeats so disable them
 		client.heartbeat.outgoing = 0;
 		client.heartbeat.incoming = 0;
+		var queues = [];
+		var connected = false;
 
 		var onConnect = function() {
-			console.log("Connected !!!");
+			connected = true;
+			for (var i=0;i<queues.length;i++) {
+				client.subscribe(queues[i].queue, queues[i].callback);
+			}
+			queues = {};
 		}
 		var onError = function() {
 			console.log("Can not connect !!!");
@@ -31,6 +37,13 @@ angular.module('realtimeApp').service('WebsocketService',
 		client.connect(mq_username, mq_password, onConnect, onError, mq_vhost);
 
 		this.subscribe = function(queue, callback) {
-			client.subscribe(queue, callback);
+			if (connected) {
+				client.subscribe(queue, callback);
+			} else  {
+				queues.push({
+					'queue': queue,
+					'callback': callback
+				});
+			}
 		}
 	});

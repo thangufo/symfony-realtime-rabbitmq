@@ -4,7 +4,6 @@
     <list default="true" id="fc500d9b-30e9-44bc-8b00-f4734af30800" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/AppBundle/Resources/views/default/js/WebsocketService.js" afterPath="$PROJECT_DIR$/src/AppBundle/Resources/views/default/js/WebsocketService.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/AppBundle/Resources/views/default/js/app.js" afterPath="$PROJECT_DIR$/src/AppBundle/Resources/views/default/js/app.js" />
     </list>
     <ignored path="symfony-realtime-rabbitmq.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -49,8 +48,8 @@
       <file leaf-file-name="WebsocketService.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/AppBundle/Resources/views/default/js/WebsocketService.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="450">
-              <caret line="25" column="9" selection-start-line="25" selection-start-column="9" selection-end-line="25" selection-end-column="9" />
+            <state relative-caret-position="128">
+              <caret line="27" column="40" selection-start-line="27" selection-start-column="40" selection-end-line="27" selection-end-column="40" />
               <folding />
             </state>
           </provider>
@@ -507,7 +506,7 @@
       <workItem from="1465478393744" duration="7681000" />
       <workItem from="1465742075765" duration="156000" />
       <workItem from="1465815642209" duration="9004000" />
-      <workItem from="1466206184634" duration="10437000" />
+      <workItem from="1466206184634" duration="10687000" />
     </task>
     <task id="LOCAL-00001" summary="update workspace">
       <created>1465742105361</created>
@@ -537,11 +536,18 @@
       <option name="project" value="LOCAL" />
       <updated>1466224638347</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="Connect to RabbitMQ">
+      <created>1466227194114</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1466227194114</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="41618000" />
+    <option name="totallyTimeSpent" value="41868000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="65" y="24" width="1855" height="1056" extended-state="6" />
@@ -589,7 +595,8 @@
     <MESSAGE value="refactor resources" />
     <MESSAGE value="Submit order &amp; list orders" />
     <MESSAGE value="Rabbitmq subscribe" />
-    <option name="LAST_COMMIT_MESSAGE" value="Rabbitmq subscribe" />
+    <MESSAGE value="Connect to RabbitMQ" />
+    <option name="LAST_COMMIT_MESSAGE" value="Connect to RabbitMQ" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -940,8 +947,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/AppBundle/Resources/views/default/js/WebsocketService.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="450">
-          <caret line="25" column="9" selection-start-line="25" selection-start-column="9" selection-end-line="25" selection-end-column="9" />
+        <state relative-caret-position="128">
+          <caret line="27" column="40" selection-start-line="27" selection-start-column="40" selection-end-line="27" selection-end-column="40" />
           <folding />
         </state>
       </provider>
