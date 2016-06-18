@@ -28,7 +28,7 @@ angular.module('realtimeApp').factory('WebsocketService',
 		// Make sure the user has limited access rights
 		client.connect(mq_username, mq_password, onConnect, onError, mq_vhost);
 
-		this.sendMessage = function() {
-
+		this.subscribe = function(queue, callback) {
+			client.subscribe(queue, callback);
 		}
 	});

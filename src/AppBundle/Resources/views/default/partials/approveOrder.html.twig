@@ -15,8 +15,8 @@
                     <span ng-if="order.status == 1">ACCEPTED</span>
                     <span ng-if="order.status == -1">REJECTED</span>
                     <span ng-if="order.status == 0">
-                        <button type="submit" class="btn btn-primary" ng-click="approve(order.id)">Approve</button>
-                        <button type="submit" class="btn btn-primary" ng-click="reject(order.id)">Reject</button>
+                        <button type="submit" class="btn btn-primary" ng-click="approve(order)">Approve</button>
+                        <button type="submit" class="btn btn-primary" ng-click="reject(order)">Reject</button>
                     </span>
                 </td>
             </tr>

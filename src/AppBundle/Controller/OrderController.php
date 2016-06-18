@@ -45,6 +45,9 @@ class OrderController extends Controller
         $em->persist($order);
         $em->flush();
 
+        $content['id'] = $order->getId();
+        $this->sendToRabbit("newOrder",$content);
+
         return new JsonResponse([
             'id' => $order->getId()
         ]);
@@ -66,7 +69,7 @@ class OrderController extends Controller
         $order = $repo->find($id);
         $order->setStatus(Order::STATUS_ACCEPTED);
 
-        $this->sendToRabbit("order_action",[
+        $this->sendToRabbit("orderAction",[
             'id' => $id,
             'status' => Order::STATUS_ACCEPTED
         ]);
@@ -86,7 +89,7 @@ class OrderController extends Controller
         /** @var Order $order */
         $order = $repo->find($id);
         $order->setStatus(Order::STATUS_REJECTED);
-        $this->sendToRabbit("order_action",[
+        $this->sendToRabbit("orderAction",[
             'id' => $id,
             'status' => Order::STATUS_REJECTED
         ]);
@@ -102,7 +105,7 @@ class OrderController extends Controller
         $connection = new AMQPStreamConnection('localhost', 5672, 'guest', 'guest');
         $channel = $connection->channel();
 
-        $channel->queue_declare('hello', false, false, false, false);
+        //$channel->queue_declare('hello', false, false, false, false);
         $msg = new AMQPMessage(json_encode($message));
         $channel->basic_publish($msg,"amq.topic",$queue);
 

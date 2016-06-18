@@ -2,8 +2,9 @@
 
 angular.module('realtimeApp', ["ui.router", "ui.bootstrap"], function($httpProvider) {
 })
-    .config(['$stateProvider','$urlRouterProvider','$httpProvider', function($stateProvider, $urlRouterProvider,$httpProvider) {
+    .config(['$stateProvider','$urlRouterProvider','$httpProvider', function($stateProvider, $urlRouterProvider,$httpProvider,$interpolateProvider) {
         $httpProvider.defaults.headers.common["X-Requested-With"] = 'XMLHttpRequest';
+        $interpolateProvider.startSymbol('[[').endSymbol(']]');
 
         //routing start from here
         $urlRouterProvider.otherwise('/');

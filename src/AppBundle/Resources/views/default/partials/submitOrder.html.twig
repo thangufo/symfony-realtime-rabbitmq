@@ -1,5 +1,9 @@
 <script type="text/ng-template" id="submitOrder.html" >
     <form name="orderForm" ng-submit="submitForm(orderForm)" novalidate>
+        <div class="alert alert-success" role="alert" ng-if="submitted">Order is submitted successfully</div>
+		<div class="alert alert-success" role="alert" ng-if="order.status == 1">Order is approved</div>
+		<div class="alert alert-danger" role="alert" ng-if="order.status == -11">Order is rejected</div>
+
         <div class="row">
             <div class="col-md-12">
                 <div class="form-group" ng-class="{'alert alert-danger': registrationForm.firstName.$invalid
