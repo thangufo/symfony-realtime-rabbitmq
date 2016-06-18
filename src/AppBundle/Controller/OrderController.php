@@ -102,7 +102,7 @@ class OrderController extends Controller
      */
     private function sendToRabbit($queue, $message)
     {
-        $connection = new AMQPStreamConnection('localhost', 5672, 'guest', 'guest');
+        $connection = new AMQPStreamConnection('localhost', 5672, 'rabbit_user', 'rabbit_password');
         $channel = $connection->channel();
 
         //$channel->queue_declare('hello', false, false, false, false);

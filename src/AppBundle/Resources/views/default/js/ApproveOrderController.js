@@ -1,5 +1,6 @@
-angular.module('realtimeApp').controller('SubmitOrderController',
+angular.module('realtimeApp').controller('ApproveOrderController',
     function ($scope, $http, $state, WebsocketService) {
+        $scope.orders = [];
         $http.get("/order").then(function(response){
             $scope.orders = response.data;
         })
