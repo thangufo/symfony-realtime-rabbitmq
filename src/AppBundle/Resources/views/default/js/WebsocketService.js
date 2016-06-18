@@ -38,8 +38,10 @@ angular.module('realtimeApp').service('WebsocketService',
 
 		this.subscribe = function(queue, callback) {
 			if (connected) {
+				//if connected to websocket the subscribe to the STOMP message queue
 				client.subscribe(queue, callback);
 			} else  {
+				//otherwise, push the request to a queue, to be subscribed later
 				queues.push({
 					'queue': queue,
 					'callback': callback

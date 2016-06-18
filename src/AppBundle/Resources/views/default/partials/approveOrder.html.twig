@@ -10,7 +10,7 @@
         <tbody>
             <tr ng-repeat="order in orders">
                 <td>[[ order.request ]]</td>
-                <td>[[ order.requestTime ]]</td>
+                <td>[[ order.requestTime.date ]]</td>
                 <td>
                     <span ng-if="order.status == 1">ACCEPTED</span>
                     <span ng-if="order.status == -1">REJECTED</span>

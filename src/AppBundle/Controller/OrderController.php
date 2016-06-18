@@ -46,6 +46,7 @@ class OrderController extends Controller
         $em->flush();
 
         $content['id'] = $order->getId();
+        $content['status'] = 0;
         $this->sendToRabbit("newOrder",$content);
 
         return new JsonResponse([
@@ -58,16 +59,18 @@ class OrderController extends Controller
     /**
      * Accept the order
      *
-     * @Route("/order/{id}/accept", name="accept_order")
+     * @Route("/order/{id}/approve", name="approve_order")
      * @Method({"POST"})
      */
-    public function acceptAction(Request $request,$id)
+    public function approveAction(Request $request,$id)
     {
         /** @var OrderRepository $repo */
         $repo = $this->getDoctrine()->getEntityManager()->getRepository("AppBundle:Order");
         /** @var Order $order */
         $order = $repo->find($id);
         $order->setStatus(Order::STATUS_ACCEPTED);
+        $em = $this->getDoctrine()->getManager();
+        $em->flush();
 
         $this->sendToRabbit("orderAction",[
             'id' => $id,
@@ -89,6 +92,9 @@ class OrderController extends Controller
         /** @var Order $order */
         $order = $repo->find($id);
         $order->setStatus(Order::STATUS_REJECTED);
+        $em = $this->getDoctrine()->getManager();
+        $em->flush();
+
         $this->sendToRabbit("orderAction",[
             'id' => $id,
             'status' => Order::STATUS_REJECTED

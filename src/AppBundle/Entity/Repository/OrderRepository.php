@@ -12,7 +12,8 @@ class OrderRepository extends \Doctrine\ORM\EntityRepository
 {
     public function findAll(){
         return $this->getEntityManager()
-            ->createQuery('SELECT r FROM AppBundle:Order r ORDER BY r.status = 0')
+            ->createQuery('SELECT r, CASE WHEN r.status = 0 THEN 1 ELSE 0 END AS HIDDEN pendingStatus  
+                FROM AppBundle:Order r ORDER BY pendingStatus DESC, r.status DESC')
             ->getArrayResult();
     }
 }
