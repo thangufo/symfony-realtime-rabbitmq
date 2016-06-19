@@ -1,8 +1,8 @@
 angular.module('realtimeApp').service('WebsocketService',
 	function () {
 		// Connection parameters
-		var mq_username = "rabbit_user",
-			mq_password = "rabbit_password",
+		var mq_username = "guest",
+			mq_password = "guest",
 			mq_vhost    = "/",
 			mq_url      = 'http://' + window.location.hostname + ':15674/stomp';
 

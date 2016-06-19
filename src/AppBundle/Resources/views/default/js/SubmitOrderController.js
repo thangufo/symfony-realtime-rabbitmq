@@ -7,6 +7,7 @@ angular.module('realtimeApp').controller('SubmitOrderController',
 			if ($scope.order.id == order.id) {
 				$scope.order.status = order.status;
 				$scope.submitted = false;
+                $scope.$apply();
 			}
         });
         $scope.submitForm = function(form) {

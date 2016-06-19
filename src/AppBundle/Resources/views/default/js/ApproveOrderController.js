@@ -1,5 +1,5 @@
 angular.module('realtimeApp').controller('ApproveOrderController',
-    function ($scope, $http, $state, WebsocketService) {
+    function ($scope, $http, $state, WebsocketService,$timeout) {
         $scope.orders = [];
         $http.get("/order").then(function(response){
             $scope.orders = response.data;
@@ -8,6 +8,9 @@ angular.module('realtimeApp').controller('ApproveOrderController',
             var order = JSON.parse(message.body);
             $scope.orders.unshift(order);
             $scope.$apply();
+            $timeout(function(){
+                order.new = false;
+            },5000)
         });
 
         $scope.approve = function(order) {
@@ -16,7 +19,7 @@ angular.module('realtimeApp').controller('ApproveOrderController',
             })
         }
 
-        $scope.reject = function(orderId) {
+        $scope.reject = function(order) {
             $http.post("/order/"+order.id+"/reject").then(function(response){
                 order.status = -1;
             })

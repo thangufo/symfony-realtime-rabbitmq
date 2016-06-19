@@ -47,6 +47,8 @@ class OrderController extends Controller
 
         $content['id'] = $order->getId();
         $content['status'] = 0;
+        $content['requestTime'] = new \DateTime();
+        $content['new'] = true;
         $this->sendToRabbit("newOrder",$content);
 
         return new JsonResponse([
@@ -108,7 +110,7 @@ class OrderController extends Controller
      */
     private function sendToRabbit($queue, $message)
     {
-        $connection = new AMQPStreamConnection('localhost', 5672, 'rabbit_user', 'rabbit_password');
+        $connection = new AMQPStreamConnection('localhost', 5672, 'guest', 'guest');
         $channel = $connection->channel();
 
         //$channel->queue_declare('hello', false, false, false, false);
