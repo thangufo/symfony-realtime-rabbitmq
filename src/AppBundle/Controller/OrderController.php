@@ -66,18 +66,7 @@ class OrderController extends Controller
      */
     public function approveAction(Request $request,$id)
     {
-        /** @var OrderRepository $repo */
-        $repo = $this->getDoctrine()->getEntityManager()->getRepository("AppBundle:Order");
-        /** @var Order $order */
-        $order = $repo->find($id);
-        $order->setStatus(Order::STATUS_ACCEPTED);
-        $em = $this->getDoctrine()->getManager();
-        $em->flush();
-
-        $this->sendToRabbit("orderAction",[
-            'id' => $id,
-            'status' => Order::STATUS_ACCEPTED
-        ]);
+        $this->changeStatus($id,Order::STATUS_ACCEPTED);
         return new JsonResponse();
     }
 
@@ -89,20 +78,28 @@ class OrderController extends Controller
      */
     public function rejectAction(Request $request,$id)
     {
+        $this->changeStatus($id,Order::STATUS_REJECTED);
+        return new JsonResponse();
+    }
+
+    /**
+     * @param int $id ID of order request
+     * @param int $status status that the order will be set to
+     */
+    private function changeStatus($id, $status)
+    {
         /** @var OrderRepository $repo */
         $repo = $this->getDoctrine()->getEntityManager()->getRepository("AppBundle:Order");
         /** @var Order $order */
         $order = $repo->find($id);
-        $order->setStatus(Order::STATUS_REJECTED);
+        $order->setStatus($status);
         $em = $this->getDoctrine()->getManager();
         $em->flush();
 
         $this->sendToRabbit("orderAction",[
             'id' => $id,
-            'status' => Order::STATUS_REJECTED
+            'status' => $status
         ]);
-
-        return new JsonResponse();
     }
 
     /**
